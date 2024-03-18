@@ -1,0 +1,86 @@
+{% extends "layout/base.html" %}
+{% load scheduletags %}
+
+{% block 'title' %}Tareas{% endblock 'title' %}
+
+{% block 'content' %}
+
+
+{% if messages %}
+    <ul class="message">
+        {% for message in messages %}
+            <li{% if message.tags %} class="alertsuccess"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+<!--<input type="text" name="search" class="search-bar" placeholder="Buscar tarea...">  
+    <input type="submit" class="search-btn" value="Buscar"> --> 
+
+<form class="search" action="{% url "todo" %}" method="GET">
+        <div class="search-box">
+            <input type="text" class="search-txt" name="search" placeholder="Buscar tarea..." autocomplete="off">
+            <a href="#" class="search-btn" onclick="event.preventDefault(); this.closest('form').submit();">
+              <ion-icon name="search-outline"></ion-icon>
+            </a>
+        </div>
+</form>
+    
+
+
+
+<span class="aux-btns">
+    <a href="{% url "todo" %}" class="btn-all">Ver Todos</a>
+    <a href="{% url "todo_create" %}" class="btn-añadir">Añadir</a>
+</span>
+<ul class="lista">
+    {% for todo in todos %}
+        <li class="lista-item">
+            <div class="item-content">
+                <div class="item-info">
+                    <img class="item-image" src="{{ todo.imagen.url|slice:"1:" }}" alt="{{ todo.title }}">
+                    <div class="item-text">
+                        <h3 class="item-title">{{ todo.title }}</h3>
+                        <p class="item-date">{{ todo.date }}</p>
+                    </div>
+                </div>
+                <div class="item-actions">
+                    <a href="{% url "todo_view" id=todo.id %}" class="btn btn-detail">Ver</a>
+                    <a href="{% url "todo_edit" id=todo.id %}" class="btn btn-edit">Editar</a>
+                    <form method="POST" action="{% url 'todo_delete' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="todo_id" value="{{ todo.id }}">
+                        <button type="submit" class="btn btn-delete">Borrar</button>
+                    </form>
+                </div>
+            </div>
+        </li>
+    {% endfor %}
+</ul>
+<div id="calendar"></div>
+<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core/main.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid/main.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core/main.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid/main.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            plugins: ['dayGrid'],
+            events: [
+                {% for event in events %}
+                    {
+                        title: '{{ event.title }}',
+                        start: '{{ event.start }}',
+                        end: '{{ event.end }}'
+                    },
+                {% endfor %}
+            ]
+        });
+        calendar.render();
+    });
+</script>
+<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+{% endblock 'content' %}

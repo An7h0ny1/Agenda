@@ -1,0 +1,26 @@
+<nav>
+    <ul id="menu">
+        <li><a href="{% url "index" %}">Inicio</a></li>
+        <li><a href="{% url "contact" %}">Contactos</a></li>
+        <li><a href="{% url "todo" %}">Tareas</a></li>
+    </ul>    
+    <div id="navbarBasicExample" class="navbar-menu">
+        {% if request.user.is_authenticated %}
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <p>
+                    Hola {{ request.user.first_name|default:request.user.username }},
+                    <a class="logout-link" href="{% url 'logout' %}">
+                        <strong>Salir</strong>
+                    </a>
+                </p>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</nav>
+
+<style>
+   
+</style>
+

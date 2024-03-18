@@ -1,0 +1,20 @@
+{% extends "layout/base.html" %}
+{% load static %}
+
+{% block 'title' %}Crear Tarea{% endblock 'title' %}
+
+{% block 'styles' %}
+<link rel="stylesheet" type="text/css" href="{% static 'forms.css' %}?v=2">
+{% endblock 'styles' %}
+
+{% block 'content' %}
+    <form action="{% url "todo_create"%}" method="POST" class="mi-formulario" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ formulario }}
+
+        <button type="submit" class="mi-boton">Guardar cambios</button>
+        <span class="mi-boton">
+            <a href="{% url "todo" %}">Volver atras</a>
+        </span>
+    </form>
+{% endblock 'content' %}

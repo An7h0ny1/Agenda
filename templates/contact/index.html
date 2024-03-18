@@ -1,0 +1,39 @@
+{% extends "layout/base.html" %}
+
+{% block 'title' %}Contactos{% endblock 'title' %}
+
+{% block 'content' %}
+
+{% if messages %}
+    <ul class="message">
+        {% for message in messages %}
+            <li{% if message.tags %} class="alertsuccess"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+<form class="search" action="{% url "contact" %}" method="GET">
+    <input type="text" name="search" class="search-bar" placeholder="Buscar contacto...">  
+    <input type="submit" class="search-btn" value="Buscar">  
+</form>
+<span class="aux-btns">
+    <a href="{% url "contact" %}" class="btn-all">Ver Todos</a>
+    <a href="{% url "contact_create" %}" class="btn-añadir">Añadir</a>
+</span>
+<ul class="lista">
+    {% for contacto in contactos %}
+        <li> {{contacto}}
+            <span class="button-group">
+                <a href="{% url "contact_view" id=contacto.id %}" class="btn btn-detail">Ver</a>
+                <a href="{% url "contact_edit" id=contacto.id %}" class="btn btn-edit">Editar</a>
+                <form method="POST" action="{% url 'contact_delete' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="contacto_id" value="{{ contacto.id }}">
+                    <button type="submit" class="btn-delete">Borrar</button>
+                </form>         
+            </span>
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock 'content' %}

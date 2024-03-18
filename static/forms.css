@@ -1,0 +1,50 @@
+
+:root{
+    --color-primary: rgb(19, 18, 18);
+    --color-secondary:  #a7a7a7;
+    --color-text:  #a7a7a7;
+
+}
+
+/* Estilo para el formulario */
+
+.mi-formulario {
+    padding: 10px;
+    margin: 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 40%;
+}
+
+.mi-formulario label {
+    color: black; 
+    font-weight: bold; 
+}
+
+/* Estilo para los elementos del formulario */
+.mi-formulario input[type="text"],
+.mi-formulario textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    color: black;
+
+}
+
+/* Estilo para el botón del formulario */
+.mi-boton {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.mi-boton a{
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}

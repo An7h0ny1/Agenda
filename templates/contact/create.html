@@ -1,0 +1,19 @@
+{% extends "layout/base.html" %}
+{% load static %}
+
+{% block 'title' %}Crear{% endblock 'title' %}
+
+{% block 'styles' %}
+<link rel="stylesheet" type="text/css" href="{% static 'forms.css' %}?v=2">
+{% endblock 'styles' %}
+
+{% block 'content' %}
+    <form action="{% url "contact_create"%}" method="POST" class="mi-formulario">
+        {% csrf_token %}
+        {{ formulario}}
+    <button type="submit" class="mi-boton">Guardar cambios</button>
+    <span class="mi-boton">
+        <a href="{% url "contact" %}">Volver atras</a>
+    </span>
+    </form>
+{% endblock 'content' %}

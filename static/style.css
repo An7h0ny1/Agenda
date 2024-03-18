@@ -1,0 +1,453 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
+:root{
+    --color-primary: rgb(19, 18, 18);
+    --color-secondary: #a7a7a7;
+    --color-text: #7335cc;
+
+}
+/*main*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(255, 255, 255);
+}
+
+h1, h2, h3 ,h4 ,h5, h6{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+}
+/*fin main*/
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw; /* Asegura que el ancho sea del 100% del viewport */
+    height: 80px;
+    background-color: var(--color-primary); /* Asegúrate de definir este color en tus estilos */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90vw;
+    padding: 0; /* Elimina el padding por defecto */
+}
+
+nav ul li a {
+    padding: 10px 20px; /* Aumento del padding horizontal para más espacio */
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #14d1fd; /* Color azul claro para los enlaces */
+    transition: color 0.3s ease; /* Transición suave para el cambio de color */
+}
+
+nav ul li a:hover {
+    color: #fff; /* Color blanco al pasar el mouse */
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo sutil al pasar el mouse */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+#navbarBasicExample {
+    margin-right: auto;
+    color: white;
+}
+
+
+
+.logout-link {
+    color: #fff; /* Cambia el color del texto a blanco */
+    text-decoration: none; /* Quita el subrayado del enlace */
+    margin-left: 10px; /* Añade un margen izquierdo para separar el enlace del texto */
+}
+
+.logout-link:hover {
+    text-decoration: underline; /* Añade un subrayado al pasar el ratón sobre el enlace */
+}
+
+
+main{
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+
+/* Estilo para la lista */
+.lista {
+    display: flex;
+    flex-direction: column;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary); /* Ajuste del grosor y color del borde */
+    border-radius: 10px;
+    width: 50%;
+    padding: 0;
+    margin: 20px auto; /* Centrado y espacio alrededor de la lista */
+    list-style-type: none;
+    background-color: #f9f9f9; /* Color de fondo suave */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para profundidad */
+}
+
+/* Estilo para los elementos de la lista */
+.lista li {
+    padding: 15px; /* Aumento del padding para más espacio */
+    border-bottom: 2px solid var(--color-secondary); /* Ajuste del grosor y color del borde */
+    color: black; /* Variable para el color del texto */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s; /* Transición suave al cambiar de color de fondo */
+}
+
+.lista li:hover {
+    background-color: rgb(0, 0, 0); /* Color de resaltado al pasar el mouse */
+    color: #14d1fd;
+}
+
+.lista-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--color-secondary);
+    transition: background-color 0.3s;
+}
+
+.item-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.item-info {
+    display: flex;
+    align-items: center;
+}
+
+.item-image {
+    width: 100px; /* Ajusta según sea necesario */
+    margin-right: 15px;
+}
+
+.item-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-title {
+    font-size: 1.2em;
+    color: #565656
+}
+
+.item-date {
+    font-size: 0.9em;
+    color: #405f7b
+}
+
+.item-actions {
+    display: flex;
+    justify-content: center;
+}
+
+/*.btn {
+}
+
+.btn-delete {
+    background-color: red
+   
+}*/
+
+/* Añade interactividad al pasar el mouse */
+.lista-item:hover {
+    background-color: var(--color-hover);
+    color: var(--color-text-hover);
+    .item-title {
+        color: #eaedf0
+    }
+    .item-date {
+        color: #91a7bb
+    }
+}
+
+.button-group {
+    display: flex; /* Hace que los elementos estén en la misma fila */
+}
+
+/* Estilo base para los botones */
+.btn {
+    margin: 0 2px;
+    padding: 6px 6px; /* Más espacio interior para un mejor clic */
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff; /* Texto blanco para mejor contraste */
+    border: none; /* Sin bordes para un look más limpio */
+    border-radius: 5px; /* Bordes redondeados para un look moderno */
+    font-family: 'Arial', sans-serif; /* Fuente más moderna y legible */
+    transition: background-color 0.3s, color 0.3s; /* Transición suave para hover */
+    cursor: pointer; /* Cambiar cursor para indicar clickeabilidad */
+}
+
+/* Botón Detalle */
+.btn-detail {
+    background-color: #65a5af; /* Un azul más vibrante */
+}
+
+.btn-detail:hover {
+    background-color: #138496; /* Un azul más oscuro al pasar el mouse */
+}
+
+/* Botón Editar */
+.btn-edit {
+    background-color: #1d3924; /* Un verde que indica 'editar' o 'continuar' */
+}
+
+.btn-edit:hover {
+    background-color: #218838; /* Un verde más oscuro al pasar el mouse */
+}
+
+/* Botón Eliminar */
+.btn-delete {
+    background-color: #652329; /* Rojo para acciones de 'eliminar' */
+    font-size: 16px; /* Tamaño de fuente ligeramente más grande */
+}
+
+.btn-delete:hover {
+    background-color: #c82333; /* Rojo más oscuro al pasar el mouse */
+}
+
+/* Estilo para el primer elemento de la lista */
+.lista li:first-child {
+    border-top: none; /* Elimina la línea superior para el primer elemento */
+}
+
+/* Estilo para el último elemento de la lista */
+.lista li:last-child {
+    border-bottom: none; /* Elimina la línea inferior para el último elemento */
+}
+
+
+/*Barra de busqueda*/
+.search-box {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    border-radius: 40px;
+    height: 40px;
+    background: #000000;
+}
+  
+.search-box:hover .search-txt {
+    width: 240px;
+    padding: 0 6px;
+}
+  
+.search-box:hover .search-btn {
+    background: #fff;
+}
+  
+.search-txt {
+    border: none;
+    background: none;
+    outline: none;
+    padding: 0;
+    color: #fff;
+    transition: 0.5s;
+    font-size: 1rem;
+    width: 0px;
+}
+  
+.search-btn {
+    color: #1abc9c;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: 0.5s;
+}
+  
+/*Botones de ver todos y añadir*/
+.aux-btns {
+    width: 50%;
+    display: flex;
+    justify-content: space-around; /* Distribución equitativa de los botones */
+    margin: 10px auto; /* Centrado horizontal y margen */
+    padding: 10px 0; /* Espacio vertical dentro del contenedor */
+}
+
+.aux-btns a {
+    padding: 10px 15px; /* Aumento del padding para un mejor aspecto */
+    text-decoration: none;
+    background-color:#2bb5c4; /* Color de fondo naranja */
+    color: #000; /* Color del texto negro */
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para profundidad */
+    transition: all 0.3s ease; /* Transición suave para todos los cambios */
+}
+
+/* Estilos individuales para cada botón */
+.btn-añadir, .btn-all {
+    margin: 0 10px; /* Margen para separar los botones */
+    background-color:#2bb5c4; /* Color de fondo naranja */
+    color: #000; /* Color del texto negro */
+    font-weight: bold; /* Texto en negrita para mayor presencia */
+    letter-spacing: 1px; /* Espaciado entre letras para un aspecto más limpio */
+    transform: translateY(0); /* Preparación para la animación de 'hover' */
+}
+
+/* Efectos de 'hover' para ambos botones */
+.btn-añadir:hover {
+    background-color: #0a060a; /* Color de fondo magenta al pasar el mouse */
+    color: #f7f7f7; /* Color del texto turquesa al pasar el mouse */
+    transform: translateY(-3px); /* Elevación al pasar el mouse */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada al pasar el mouse */
+}
+
+.btn-all:hover {
+    background-color: #000; /* Color de fondo negro al pasar el mouse */
+    color: #ffffff; /* Color del texto magenta al pasar el mouse */
+    transform: translateY(-3px); /* Elevación al pasar el mouse */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada al pasar el mouse */
+}
+
+
+/*Detail*/
+
+/* Estilo para la lista */
+.lista-detail {
+    list-style-type: none;
+    padding: 10px;
+    margin: 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 50%;
+}
+
+/* Estilo para los elementos de la lista */
+.lista-detail li {
+    padding: 15px 10px;
+    border-bottom: 1px solid #ccc;
+    color: var(--color-primary);
+}
+
+/* Estilo para el último elemento de la lista */
+.lista-detail li:last-child {
+    border-bottom: none; /* Elimina la línea inferior para el último elemento */
+}
+
+/* Estilo para las etiquetas (nombres) */
+.lista-detail li strong {
+    font-weight: bold;
+    color: var(--color-primary); /* Cambia el color del texto de la etiqueta */
+}
+
+/* Estilo para los datos */
+.lista-detail li span {
+    color: var(--color-primary); /* Cambia el color del texto de los datos */
+}
+
+
+/*mENSAJE DE ALERTA*/
+
+
+.alertsuccess{
+    padding: 15px;
+    background-color: #1e271e; /* Color de fondo verde (éxito) */
+    color: rgb(255, 255, 255); /* Texto en blanco para mayor contraste */
+    border: 1px solid #3da329; /* Borde verde para resaltar */
+    border-radius: 5px; /* Esquinas redondeadas */
+    text-align: center; /* Centra el texto en la alerta */
+    margin: 0 auto; /* Centra horizontalmente en la pantalla */
+}
+
+.container {
+    display: flex;
+    justify-content: space-between; /* Distribuye los elementos uniformemente a lo largo del contenedor */
+    align-items: center;
+    max-width: 80%; 
+    margin: 0 auto; /* Centra vertical y horizontalmente el contenedor dentro de su padre */
+    margin-top: 50px;
+}
+
+/*Inicio de pagina*/
+
+.card {
+    position: relative;
+    width: calc(50% - 50px);
+    height: 254px;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding: 12px;
+    gap: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+}
+  
+.card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    left: -5px;
+    margin: auto;
+    width: 200px;
+    height: 264px;
+    border-radius: 10px;
+    background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100% );
+    z-index: -10;
+    pointer-events: none;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+  
+.card::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100% );
+    transform: translate3d(0, 0, 0) scale(0.95);
+    filter: blur(20px);
+}
+  
+.heading {
+    font-size: 20px;
+    text-transform: capitalize;
+    font-weight: 700;
+    color: #93369d;
+}
+  
+.card p:not(.heading) {
+    font-size: 14px;
+}
+  
+.card p:last-child {
+    color: #e81cff;
+    font-weight: 600;
+}
+  
+.card:hover::after {
+    filter: blur(30px);
+}
+  
+.card:hover::before {
+    transform: rotate(-90deg) scaleX(1.34) scaleY(0.77);
+}
+  
+
+
+

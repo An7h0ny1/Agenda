@@ -1,0 +1,61 @@
+{% extends "baseLogin.html" %}
+{% block title %}Create an account{% endblock %}
+{% block content %}
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  .login-form {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 0 auto;
+    max-width: 500px;
+    animation: fadeIn 2s;
+  }
+  .login-form h1 {
+    color: #333;
+  }
+  .login-form p {
+    color: #666;
+  }
+  .login-form .input {
+    margin-bottom: 10px;
+  }
+  .login-form .button {
+    background-color: #007BFF;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  .login-form .button:hover {
+    background-color: #0056b3;
+  }
+  .columns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+  }
+</style>
+<div class="columns">
+  <div class="column is-half">
+    <div class="login-form">
+      <h1 class="is-size-3 mt-3">Create an account</h1>
+      <p class="is-size-5">Please, sign up using the following form:</p>
+      
+      <form method="post">    
+        {% load widget_tweaks %}
+        {{ user_form.username.label_tag }} {% render_field user_form.username class+="input mt-2"%}
+        {{ user_form.first_name.label_tag }} {% render_field user_form.first_name class+="input mt-2"%}
+        {{ user_form.email.label_tag }} {% render_field user_form.email class+="input mt-2"%}
+        {{ user_form.password.label_tag }} {% render_field user_form.password class+="input mt-2"%}
+        {{ user_form.password2.label_tag }} {% render_field user_form.password2 class+="input mt-2"%}
+        {% csrf_token %}
+    
+        <input type="submit" value="Create my account" class="button mt-2 is-link">
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

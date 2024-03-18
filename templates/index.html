@@ -1,0 +1,29 @@
+{% extends "layout/base.html" %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css'%}?v=2">
+
+{% block 'title' %}Inicio{% endblock 'title' %}
+
+{% block 'content' %}
+    <div class="hero">
+        <h1> Bienvenido a tu gestor personal. </h1>
+        <p>Administra tus contactos y tareas de manera eficiente y sencilla.</p>
+        
+    </div>
+    <hr>
+    <div class="container">
+        <div class="card">
+            <h2 class="heading">Contactos</h2>
+            <p>Aquí puedes agregar, editar y eliminar tus contactos.</p>
+            <a href="{% url 'contact' %}" class="btn">Ir a Contactos</a>
+        </div>
+        <hr>
+        <div class="card">
+            <h2 class="heading">Tareas</h2>
+            <p>Gestiona tus tareas diarias de manera efectiva.</p>
+            <a href="{% url 'todo' %}" class="btn">Ir a Tareas</a>
+        </div>
+        
+    </div>
+{% endblock 'content' %}
+
